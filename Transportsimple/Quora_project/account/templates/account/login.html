@@ -1,0 +1,28 @@
+{% extends 'account/base.html' %}
+
+{% block content %}
+    <h3>Quora - Login via Username</h1>
+      {% if form.errors %}
+    <div class="alert alert-danger">
+        <ul>
+            {% for error in form.errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+        <form method="post" >
+            {{ form.as_p }}
+            {% csrf_token %}
+           <input type="submit" class="btn btn-dark " value="Log in">
+        </form>
+
+        <h3>You didnt have account<h3><br>
+        <a  href="{% url 'account:signup' %}">Signup</a><br>
+
+            <a class="text-semibold btn btn-info" href="{% url 'home' %}">Back Home</a><br>
+         
+
+
+
+{% endblock content %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+        <h4> Question</h4>
+        <ul >
+            {% for quest_list in quest_list  %}
+              
+          
+            <li >
+                <a href="{{ quest_list.get_absolute_url }}">
+                    <div >
+                        {{quest_list.question}}
+                    </div>
+                </a>
+            </li>
+            
+            {% endfor %}
+        </ul>
+{% endblock content %}
+
+
+
+
+

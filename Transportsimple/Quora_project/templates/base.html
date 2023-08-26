@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quora</title>
+    </head>
+  <body>
+
+        <a  href="#">Quora</a><br>
+
+            <a  aria-current="page" href="{% url 'home' %}">Home</a><br>
+            <a  href="{% url 'add_question' %}">Add Question</a><br>
+
+
+            {% if request.user.is_authenticated %}
+            <a  href="#">Hi ,{{ request.user.username }}</a><br>
+            {% if request.user.is_superuser %}
+            <a  href="{% url 'admin:index' %}">Admin Panel</a><br>
+             {% endif %}
+            <a  href="{% url 'account:logout' %}">Logout</a><br>
+            {% else %}
+            <a  href="{% url 'account:signup' %}">Sign Up</a><br>
+            <a  href="{% url 'account:login' %}">Login</a>
+            {% endif %}
+            
+           
+              
+
+    {% block content %}
+    
+    
+    {% endblock content %}
+      </body>
+</html>
